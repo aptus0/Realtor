@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Verified__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates the address has been verified by an external gateway.</description>
+    <inlineHelpText>Checked automatically or manually after address verification.</inlineHelpText>
+    <label>Verified?</label>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

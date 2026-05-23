@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Street__c</fullName>
+    <description>Street address sent to address verification services.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the street address before verifying the location.</inlineHelpText>
+    <label>Street</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <type>TextArea</type>
+</CustomField>

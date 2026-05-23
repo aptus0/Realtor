@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Appointment_Date_Time__c</fullName><description>Requested appointment date/time for a property visit.</description><inlineHelpText>Used by the booking workflow and reminders.</inlineHelpText><label>Appointment Date/Time</label><required>false</required><trackHistory>true</trackHistory><type>DateTime</type></CustomField>

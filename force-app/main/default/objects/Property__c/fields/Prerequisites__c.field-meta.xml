@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Prerequisites__c</fullName><defaultValue>false</defaultValue><description>Confirms operational prerequisites are completed.</description><inlineHelpText>This must be checked before a property can be created or associated with a realtor.</inlineHelpText><label>Prerequisites</label><trackHistory>true</trackHistory><type>Checkbox</type></CustomField>

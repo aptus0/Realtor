@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Name__c</fullName><description>Public title for the property listing.</description><externalId>false</externalId><inlineHelpText>Use a clear listing title shown on the public website.</inlineHelpText><label>Name</label><length>255</length><required>true</required><trackHistory>true</trackHistory><type>Text</type><unique>false</unique></CustomField>

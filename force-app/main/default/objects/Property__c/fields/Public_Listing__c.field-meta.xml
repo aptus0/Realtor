@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Public_Listing__c</fullName><defaultValue>false</defaultValue><description>Controls whether this property is available to public APIs.</description><inlineHelpText>Only checked records are returned to the public listing API.</inlineHelpText><label>Public Listing</label><trackHistory>true</trackHistory><type>Checkbox</type></CustomField>

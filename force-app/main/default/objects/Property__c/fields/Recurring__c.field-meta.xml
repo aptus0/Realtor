@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Recurring__c</fullName><defaultValue>false</defaultValue><description>Indicates the property listing or visit schedule repeats.</description><inlineHelpText>Frequency is required only when recurring is checked.</inlineHelpText><label>Recurring?</label><trackHistory>true</trackHistory><type>Checkbox</type></CustomField>

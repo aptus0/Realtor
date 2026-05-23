@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Administrative access for the Realtor Management app metadata.</description>
+    <fieldPermissions><editable>true</editable><field>Location__c.Land_Mark__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Location__c.Verified__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Manager__c.Alternative_Email__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Manager__c.Alternative_Phone__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Manager__c.Location__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Realtor__c.Field_of_Duty__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Realtor__c.Photo_URL__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Buyer__c.Company_Name__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Buyer__c.Location__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Status__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.End_Date_Time__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Location__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>false</editable><field>Property__c.Location_Verified__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Prerequisites__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Recurring__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Property_Type__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Frequency__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Price__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Bedrooms__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Bathrooms__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Area_Sq_Ft__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Image_URL__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Public_Listing__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property__c.Description__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property_Buyer__c.Appointment_Date_Time__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property_Buyer__c.Status__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Property_Buyer__c.Notes__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Error_Log__c.Log_Date_Time__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Error_Log__c.Log_Details__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Error_Log__c.Process_Name__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Error_Log__c.Apex_Class_Name__c</field><readable>true</readable></fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Realtor Admin</label>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Location__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Manager__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Property__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Buyer__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Realtor__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Property_Buyer__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Property_Realtor__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Error_Log__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
+</PermissionSet>

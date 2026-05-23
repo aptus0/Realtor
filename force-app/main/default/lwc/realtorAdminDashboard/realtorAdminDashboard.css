@@ -1,0 +1,24 @@
+.metrics {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: 1rem;
+}
+
+.metric {
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+}
+
+.metric span {
+    color: #032d60;
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.metric p {
+    color: #444;
+    margin: 0.15rem 0 0;
+}

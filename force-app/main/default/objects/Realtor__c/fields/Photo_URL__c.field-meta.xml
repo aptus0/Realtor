@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Photo_URL__c</fullName><description>Public profile image URL for the realtor.</description><inlineHelpText>Displayed by the public web application.</inlineHelpText><label>Photo URL</label><required>false</required><type>Url</type></CustomField>

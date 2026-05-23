@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>End_Date_Time__c</fullName><description>Listing or appointment availability end date/time.</description><inlineHelpText>When provided, must be at least one day after the start date/time.</inlineHelpText><label>End Date/Time</label><required>false</required><trackHistory>true</trackHistory><type>DateTime</type></CustomField>

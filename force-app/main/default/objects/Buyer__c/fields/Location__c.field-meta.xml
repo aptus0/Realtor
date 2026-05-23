@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Location__c</fullName><deleteConstraint>SetNull</deleteConstraint><description>Preferred or current buyer location.</description><inlineHelpText>Connect buyer to a location when known.</inlineHelpText><label>Location</label><referenceTo>Location__c</referenceTo><relationshipLabel>Buyers</relationshipLabel><relationshipName>Buyers</relationshipName><required>false</required><type>Lookup</type></CustomField>

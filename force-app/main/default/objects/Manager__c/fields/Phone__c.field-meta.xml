@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Phone__c</fullName><description>Primary manager phone number.</description><inlineHelpText>Required phone number for operational contact.</inlineHelpText><label>Phone</label><required>true</required><trackHistory>true</trackHistory><type>Phone</type></CustomField>

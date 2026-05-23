@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>State__c</fullName>
+    <description>State, province, or region for the address.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>State or region is required for address validation.</inlineHelpText>
+    <label>State</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <type>TextArea</type>
+</CustomField>

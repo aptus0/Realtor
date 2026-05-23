@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Location_Verified__c</fullName><description>Shows whether the related location is verified.</description><formula>Location__r.Verified__c</formula><formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs><inlineHelpText>Derived from the related Location record.</inlineHelpText><label>Location Verified</label><type>Checkbox</type></CustomField>

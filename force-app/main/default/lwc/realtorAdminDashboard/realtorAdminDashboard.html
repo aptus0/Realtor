@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Realtor Operations" icon-name="custom:custom85">
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+            <template if:true={summary}>
+                <div class="metrics">
+                    <div class="metric"><span>{summary.properties}</span><p>Properties</p></div>
+                    <div class="metric"><span>{summary.publicListings}</span><p>Public</p></div>
+                    <div class="metric"><span>{summary.buyers}</span><p>Buyers</p></div>
+                    <div class="metric"><span>{summary.bookings}</span><p>Bookings</p></div>
+                </div>
+                <lightning-datatable
+                    key-field="Id"
+                    data={rows}
+                    columns={columns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+            <template if:true={error}>
+                <div class="slds-text-color_error">Dashboard data could not be loaded.</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

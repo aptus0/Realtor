@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prerequisites_Required</fullName>
+    <active>true</active>
+    <description>Property cannot be saved without prerequisites confirmation.</description>
+    <errorConditionFormula>NOT(Prerequisites__c)</errorConditionFormula>
+    <errorMessage>Prerequisites must be checked before saving a property.</errorMessage>
+</ValidationRule>

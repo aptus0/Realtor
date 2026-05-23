@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sell_Requires_Location</fullName>
+    <active>true</active>
+    <description>Sell properties must have a location.</description>
+    <errorConditionFormula>AND(ISPICKVAL(Property_Type__c, "Sell"), ISBLANK(Location__c))</errorConditionFormula>
+    <errorMessage>Select Location when Property Type is Sell.</errorMessage>
+</ValidationRule>

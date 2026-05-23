@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Field_of_Duty__c</fullName><description>Specialization or duty area for this realtor.</description><inlineHelpText>Example: luxury homes, land, commercial office, rentals.</inlineHelpText><label>Field of Duty</label><length>255</length><required>false</required><type>Text</type><unique>false</unique></CustomField>
