@@ -1,3 +1,51 @@
+.home {
+    display: grid;
+    gap: 1rem;
+}
+
+.hero {
+    align-items: center;
+    background: linear-gradient(135deg, #17211d, #1f7558 58%, #df553d);
+    border-radius: 0.5rem;
+    color: #fff;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    min-height: 13rem;
+    padding: 2rem;
+}
+
+.eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+    max-width: 46rem;
+}
+
+.lede {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0.85rem 0 0;
+    max-width: 42rem;
+}
+
+.hero-actions {
+    align-items: flex-end;
+    display: grid;
+    gap: 0.75rem;
+    min-width: 12rem;
+}
+
 .metrics {
     display: grid;
     gap: 0.75rem;
@@ -6,9 +54,18 @@
 }
 
 .metric {
+    background: #fff;
     border: 1px solid #dddbda;
-    border-radius: 0.25rem;
-    padding: 0.75rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 1rem;
+    text-align: left;
+}
+
+.metric:hover,
+.quick-link:hover {
+    border-color: #1f7558;
+    box-shadow: 0 0.5rem 1.25rem rgba(23, 33, 29, 0.1);
 }
 
 .metric span {
@@ -21,4 +78,79 @@
 .metric p {
     color: #444;
     margin: 0.15rem 0 0;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr);
+}
+
+.quick-links {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 1rem;
+}
+
+.quick-link {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    font-weight: 700;
+    gap: 0.65rem;
+    min-height: 3.5rem;
+    padding: 0 0.8rem;
+    text-align: left;
+}
+
+.health {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.health > div {
+    border-left: 0.25rem solid #1f7558;
+    padding-left: 0.85rem;
+}
+
+.health p {
+    color: #5f6a63;
+    line-height: 1.45;
+    margin: 0.25rem 0 0;
+}
+
+.health-dot {
+    background: #1f7558;
+    border-radius: 999px;
+    display: inline-block;
+    height: 0.6rem;
+    margin-right: 0.45rem;
+    width: 0.6rem;
+}
+
+.health-dot.accent {
+    background: #df553d;
+}
+
+.table-wrap,
+.error {
+    padding: 1rem;
+}
+
+@media (max-width: 48rem) {
+    .hero,
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .metrics,
+    .quick-links {
+        grid-template-columns: 1fr;
+    }
 }

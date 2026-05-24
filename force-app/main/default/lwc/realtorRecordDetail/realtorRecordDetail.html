@@ -1,0 +1,52 @@
+<template>
+    <template if:true={detail}>
+        <article class="detail">
+            <section class="hero">
+                <template if:true={detail.imageUrl}>
+                    <img src={detail.imageUrl} alt={detail.title} />
+                </template>
+                <div class="hero-copy">
+                    <span class="badge">{detail.badge}</span>
+                    <h1>{detail.title}</h1>
+                    <p>{detail.subtitle}</p>
+                    <div class="actions">
+                        <lightning-button label="Edit" variant="brand" icon-name="utility:edit" onclick={editRecord}></lightning-button>
+                        <lightning-button label="Back to List" icon-name="utility:list" onclick={openList}></lightning-button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="field-grid">
+                <template for:each={fields} for:item="field">
+                    <div class={field.className} key={field.label}>
+                        <span>{field.label}</span>
+                        <strong>{field.displayValue}</strong>
+                    </div>
+                </template>
+            </section>
+
+            <template if:true={hasMapMarkers}>
+                <section class="map-panel">
+                    <div>
+                        <span class="badge soft">Google Maps</span>
+                        <h2>{detail.title}</h2>
+                        <p>{selectedAddress}</p>
+                        <a href={googleMapsSearchUrl} target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                    </div>
+                    <iframe
+                        title={mapTitle}
+                        src={googleMapsEmbedUrl}
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </section>
+            </template>
+        </article>
+    </template>
+
+    <template if:true={error}>
+        <lightning-card title="Record detail could not be loaded" icon-name="utility:error">
+            <div class="error">This custom detail component could not load the selected record.</div>
+        </lightning-card>
+    </template>
+</template>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>LWC workspace for integration and automation logs.</description>
+    <label>Error Logs</label>
+    <lwcComponent>realtorObjectWorkspace</lwcComponent>
+    <motif>Custom53: Bell</motif>
+</CustomTab>

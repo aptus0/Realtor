@@ -1,0 +1,138 @@
+<template>
+    <div class="workspace">
+        <template if:true={workspace}>
+            <section class="hero">
+                <div>
+                    <p class="eyebrow">Realtor Workspace</p>
+                    <h1>{workspace.label}</h1>
+                    <p class="lede">{workspace.subtitle}</p>
+                </div>
+                <div class="actions">
+                    <lightning-button label="New" variant="brand" icon-name="utility:add" onclick={createRecord}></lightning-button>
+                    <lightning-button label="Standard List" icon-name="utility:list" onclick={openList}></lightning-button>
+                </div>
+            </section>
+
+            <section class="summary">
+                <div class="metric">
+                    <span>{workspace.totalCount}</span>
+                    <p>Total records</p>
+                </div>
+                <div class="metric muted">
+                    <span>{rowCount}</span>
+                    <p>Showing recent</p>
+                </div>
+            </section>
+
+            <template if:true={hasMapMarkers}>
+                <lightning-card title={mapTitle} icon-name="utility:location">
+                    <div class="map-layout">
+                        <div class="map-copy">
+                            <p class="eyebrow dark">Google Maps</p>
+                            <h2>{mapHeading}</h2>
+                            <p>{mapDescription}</p>
+                            <div class="map-selector" aria-label="Map locations">
+                                <template for:each={mapLocations} for:item="marker">
+                                    <button class="map-option" type="button" key={marker.value} data-value={marker.value} onclick={selectMapMarker}>
+                                        <span>{marker.title}</span>
+                                        <small>{marker.address}</small>
+                                    </button>
+                                </template>
+                            </div>
+                            <a class="google-link" href={googleMapsSearchUrl} target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                        </div>
+                        <div class="google-map-frame">
+                            <iframe
+                                title={selectedMapTitle}
+                                src={googleMapsEmbedUrl}
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </lightning-card>
+            </template>
+
+            <template if:true={isLogWorkspace}>
+                <section class="log-grid" aria-label="Recent error log cards">
+                    <template for:each={logCards} for:item="log">
+                        <article class="log-card" key={log.id}>
+                            <div class="log-card__top">
+                                <span class="severity">Operational Log</span>
+                                <lightning-button-icon icon-name="utility:open" alternative-text="Open log" title="Open log" data-id={log.id} onclick={openRecordFromButton}></lightning-button-icon>
+                            </div>
+                            <h2>{log.processName}</h2>
+                            <p class="log-class">{log.apexClassName}</p>
+                            <p class="log-details">{log.logDetails}</p>
+                            <time>{log.logDateTime}</time>
+                        </article>
+                    </template>
+                </section>
+            </template>
+
+            <template if:true={selectedDetail}>
+                <section class="record-preview" aria-label="Selected record detail">
+                    <div class="record-preview__header">
+                        <div>
+                            <span class="preview-badge">{selectedDetail.badge}</span>
+                            <h2>{selectedDetail.title}</h2>
+                            <p>{selectedDetail.subtitle}</p>
+                        </div>
+                        <div class="preview-actions">
+                            <lightning-button label="Open Salesforce Record" icon-name="utility:open" onclick={openSelectedRecord}></lightning-button>
+                            <lightning-button-icon icon-name="utility:close" alternative-text="Close detail" title="Close detail" onclick={closeSelectedDetail}></lightning-button-icon>
+                        </div>
+                    </div>
+                    <div class="preview-grid">
+                        <template for:each={selectedFields} for:item="field">
+                            <div class={field.className} key={field.label}>
+                                <span>{field.label}</span>
+                                <strong>{field.displayValue}</strong>
+                            </div>
+                        </template>
+                    </div>
+                    <template if:true={selectedHasMap}>
+                        <div class="preview-map">
+                            <div>
+                                <span class="preview-badge soft">Google Maps</span>
+                                <p>{selectedAddress}</p>
+                                <a href={selectedGoogleMapsSearchUrl} target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                            </div>
+                            <iframe
+                                title={selectedMapTitle}
+                                src={selectedGoogleMapsEmbedUrl}
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </template>
+                </section>
+            </template>
+
+            <lightning-card title={tableTitle} icon-name="utility:table">
+                <div class="table-wrap">
+                    <lightning-datatable
+                        key-field="id"
+                        data={workspace.rows}
+                        columns={columns}
+                        onrowaction={handleRowAction}
+                        hide-checkbox-column>
+                    </lightning-datatable>
+                    <template if:false={hasRows}>
+                        <div class="empty-state">
+                            <lightning-icon icon-name="utility:success" size="small"></lightning-icon>
+                            <strong>No recent records yet</strong>
+                            <p>Create sample data or add a new record to populate this workspace.</p>
+                        </div>
+                    </template>
+                </div>
+            </lightning-card>
+        </template>
+
+        <template if:true={error}>
+            <lightning-card title="Workspace could not be loaded" icon-name="utility:error">
+                <div class="error">Please check Apex access, object permissions, and the Realtor Admin permission set.</div>
+            </lightning-card>
+        </template>
+    </div>
+</template>

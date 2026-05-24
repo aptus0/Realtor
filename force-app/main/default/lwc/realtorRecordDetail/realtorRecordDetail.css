@@ -1,0 +1,149 @@
+.detail {
+    display: grid;
+    gap: 1rem;
+}
+
+.hero {
+    background: linear-gradient(135deg, #17211d, #2d5f77 58%, #1f7558);
+    border-radius: 0.5rem;
+    color: #fff;
+    display: grid;
+    grid-template-columns: minmax(0, 0.38fr) minmax(0, 0.62fr);
+    min-height: 17rem;
+    overflow: hidden;
+}
+
+.hero img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.hero-copy {
+    align-content: center;
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.75rem;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    color: #fff;
+    display: inline-flex;
+    font-size: 0.75rem;
+    font-weight: 700;
+    justify-self: start;
+    padding: 0.3rem 0.65rem;
+    text-transform: uppercase;
+}
+
+.badge.soft {
+    background: #e9f4ef;
+    border-color: #cde4d9;
+    color: #1f7558;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.hero p {
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.field-grid {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.field {
+    background: #fff;
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    display: grid;
+    gap: 0.3rem;
+    padding: 1rem;
+}
+
+.field.span-all {
+    grid-column: 1 / -1;
+}
+
+.field span {
+    color: #5f6a63;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.field strong {
+    color: #17211d;
+    font-size: 1rem;
+    line-height: 1.45;
+    white-space: pre-wrap;
+}
+
+.map-panel {
+    background: #fff;
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(16rem, 0.35fr) minmax(0, 0.65fr);
+    padding: 1rem;
+}
+
+.map-panel h2 {
+    color: #17211d;
+    font-size: 1.2rem;
+    margin: 0.75rem 0 0;
+}
+
+.map-panel p {
+    color: #5f6a63;
+    line-height: 1.5;
+}
+
+.map-panel a {
+    align-items: center;
+    background: #1f7558;
+    border-radius: 0.5rem;
+    color: #fff;
+    display: inline-flex;
+    font-weight: 700;
+    min-height: 2.6rem;
+    padding: 0 1rem;
+}
+
+.map-panel iframe {
+    border: 0;
+    border-radius: 0.5rem;
+    height: 24rem;
+    width: 100%;
+}
+
+.error {
+    padding: 1rem;
+}
+
+@media (max-width: 48rem) {
+    .hero,
+    .field-grid,
+    .map-panel {
+        grid-template-columns: 1fr;
+    }
+}

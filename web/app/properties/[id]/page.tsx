@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Bath, BedDouble, CalendarDays, CheckCircle2, MapPin, Ruler } from 'lucide-react';
+import { Bath, BedDouble, CalendarDays, CheckCircle2, Home, MapPin, Ruler, Send } from 'lucide-react';
 import { fetchProperty } from '../../../lib/salesforce';
 
 export default async function PropertyDetail({ params }: { params: Promise<{ id: string }> }) {
@@ -19,7 +19,10 @@ export default async function PropertyDetail({ params }: { params: Promise<{ id:
   return (
     <>
       <header className="topbar shell">
-        <Link className="brand" href="/">Realtor Stays</Link>
+        <Link className="brand" href="/">
+          <span className="brand-mark"><Home size={18} /></span>
+          Realtor Stays
+        </Link>
         <nav className="nav" aria-label="Primary">
           <Link href="/">Explore</Link>
           <Link href="/realtors/featured">Realtors</Link>
@@ -27,14 +30,18 @@ export default async function PropertyDetail({ params }: { params: Promise<{ id:
       </header>
       <main className="shell detail">
         <section>
-          <Image
-            className="detail-hero"
-            src={property.imageUrl || 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3'}
-            alt={property.name}
-            width={1100}
-            height={680}
-            priority
-          />
+          <div className="detail-media">
+            <Image
+              className="detail-hero"
+              src={property.imageUrl || 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3'}
+              alt={property.name}
+              width={1100}
+              height={680}
+              priority
+            />
+            <span className="status-pill">{property.status}</span>
+          </div>
+          <span className="eyebrow">{property.propertyType} property</span>
           <h1>{property.name}</h1>
           <div className="property-meta">
             <span><MapPin size={15} /> {property.city || 'Location'}, {property.country || ''}</span>
@@ -51,6 +58,7 @@ export default async function PropertyDetail({ params }: { params: Promise<{ id:
         </section>
 
         <aside className="booking-panel">
+          <span className="eyebrow">Fast request</span>
           <h2>Request a visit</h2>
           <form action="/api/bookings" method="post">
             <input type="hidden" name="propertyId" value={property.id} />
@@ -60,7 +68,7 @@ export default async function PropertyDetail({ params }: { params: Promise<{ id:
             <input name="phone" placeholder="Phone" required />
             <input name="appointmentDateTime" type="datetime-local" />
             <textarea name="notes" placeholder="Notes" />
-            <button className="primary" type="submit">Send booking request</button>
+            <button className="primary" type="submit">Send booking request <Send size={16} /></button>
           </form>
         </aside>
       </main>

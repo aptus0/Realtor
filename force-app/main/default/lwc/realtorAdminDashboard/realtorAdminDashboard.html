@@ -1,23 +1,81 @@
 <template>
-    <lightning-card title="Realtor Operations" icon-name="custom:custom85">
-        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
-            <template if:true={summary}>
-                <div class="metrics">
-                    <div class="metric"><span>{summary.properties}</span><p>Properties</p></div>
-                    <div class="metric"><span>{summary.publicListings}</span><p>Public</p></div>
-                    <div class="metric"><span>{summary.buyers}</span><p>Buyers</p></div>
-                    <div class="metric"><span>{summary.bookings}</span><p>Bookings</p></div>
+    <div class="home">
+        <section class="hero">
+            <div>
+                <p class="eyebrow">Realtor CRM Workspace</p>
+                <h1>Manage listings, buyers, visits, and realtor assignments from one home.</h1>
+                <p class="lede">Live Salesforce records power the public website and the internal operation flow.</p>
+            </div>
+            <div class="hero-actions">
+                <lightning-button label="New Property" variant="brand" icon-name="utility:add" data-object="Property__c" onclick={createRecord}></lightning-button>
+                <lightning-button label="Open Properties" icon-name="utility:open" data-object="Property__c" onclick={openObject}></lightning-button>
+            </div>
+        </section>
+
+        <template if:true={summary}>
+            <section class="metrics" aria-label="Realtor app metrics">
+                <button class="metric" type="button" data-object="Property__c" onclick={openObject}>
+                    <span>{summary.properties}</span>
+                    <p>Properties</p>
+                </button>
+                <button class="metric" type="button" data-object="Property__c" onclick={openObject}>
+                    <span>{summary.publicListings}</span>
+                    <p>Public listings</p>
+                </button>
+                <button class="metric" type="button" data-object="Buyer__c" onclick={openObject}>
+                    <span>{summary.buyers}</span>
+                    <p>Buyers</p>
+                </button>
+                <button class="metric" type="button" data-object="Property_Buyer__c" onclick={openObject}>
+                    <span>{summary.bookings}</span>
+                    <p>Bookings</p>
+                </button>
+            </section>
+
+            <section class="grid">
+                <lightning-card title="Quick Navigation" icon-name="utility:apps">
+                    <div class="quick-links">
+                        <template for:each={quickLinks} for:item="link">
+                            <button class="quick-link" type="button" key={link.objectApiName} data-object={link.objectApiName} onclick={openObject}>
+                                <lightning-icon icon-name={link.iconName} size="small"></lightning-icon>
+                                <span>{link.label}</span>
+                            </button>
+                        </template>
+                    </div>
+                </lightning-card>
+
+                <lightning-card title="Operational Health" icon-name="utility:success">
+                    <div class="health">
+                        <div>
+                            <span class="health-dot"></span>
+                            <strong>CRM metadata active</strong>
+                            <p>Objects, validation rules, triggers, and public API are deployed.</p>
+                        </div>
+                        <div>
+                            <span class="health-dot accent"></span>
+                            <strong>Website-ready records</strong>
+                            <p>Listings marked public are available to the Next.js property experience.</p>
+                        </div>
+                    </div>
+                </lightning-card>
+            </section>
+
+            <lightning-card title="Recent Properties" icon-name="standard:household">
+                <div class="table-wrap">
+                    <lightning-datatable
+                        key-field="Id"
+                        data={rows}
+                        columns={columns}
+                        hide-checkbox-column>
+                    </lightning-datatable>
                 </div>
-                <lightning-datatable
-                    key-field="Id"
-                    data={rows}
-                    columns={columns}
-                    hide-checkbox-column>
-                </lightning-datatable>
-            </template>
-            <template if:true={error}>
-                <div class="slds-text-color_error">Dashboard data could not be loaded.</div>
-            </template>
-        </div>
-    </lightning-card>
+            </lightning-card>
+        </template>
+
+        <template if:true={error}>
+            <lightning-card title="Dashboard data could not be loaded" icon-name="utility:error">
+                <div class="error">Please check Apex access and object permissions for the Realtor Admin permission set.</div>
+            </lightning-card>
+        </template>
+    </div>
 </template>

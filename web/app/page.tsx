@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Bath, BedDouble, Building2, MapPin, Search, SlidersHorizontal } from 'lucide-react';
+import { ArrowRight, Bath, BedDouble, Building2, CheckCircle2, Home as HomeIcon, MapPin, Search, ShieldCheck, SlidersHorizontal } from 'lucide-react';
 import { fetchProperties } from '../lib/salesforce';
 
 function formatPrice(value?: number, type?: string) {
@@ -11,11 +11,15 @@ function formatPrice(value?: number, type?: string) {
 
 export default async function Home() {
   const properties = await fetchProperties();
+  const verifiedCount = properties.filter((property) => property.locationVerified).length;
 
   return (
     <>
       <header className="topbar shell">
-        <Link className="brand" href="/">Realtor Stays</Link>
+        <Link className="brand" href="/">
+          <span className="brand-mark"><HomeIcon size={18} /></span>
+          Realtor Stays
+        </Link>
         <nav className="nav" aria-label="Primary">
           <Link href="/">Explore</Link>
           <Link href="/realtors/featured">Realtors</Link>
@@ -26,17 +30,33 @@ export default async function Home() {
       <main className="shell">
         <section className="hero">
           <div className="hero-copy">
+            <span className="eyebrow"><ShieldCheck size={16} /> Salesforce CRM ready</span>
             <h1>Realtor Stays</h1>
             <p>Salesforce-backed property discovery for homes, offices, land, and daily rentals with booking requests routed straight into CRM.</p>
+            <div className="hero-actions">
+              <a className="primary" href="#listings">Explore listings <ArrowRight size={18} /></a>
+              <Link className="secondary" href="/realtors/featured">Meet realtor</Link>
+            </div>
+            <div className="hero-stats" aria-label="Marketplace highlights">
+              <span><strong>{properties.length}</strong> active listings</span>
+              <span><strong>{verifiedCount}</strong> verified locations</span>
+              <span><strong>24h</strong> CRM response flow</span>
+            </div>
           </div>
           <div
             className="hero-image"
             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c')" }}
             aria-label="Modern property exterior"
-          />
+          >
+            <div className="hero-card">
+              <span>Featured market</span>
+              <strong>Austin modern homes</strong>
+              <small>Verified visits and booking requests</small>
+            </div>
+          </div>
         </section>
 
-        <form className="filters">
+        <form className="filters" id="listings">
           <input aria-label="Search destination" placeholder="City, country, or listing" />
           <select aria-label="Property type" defaultValue="">
             <option value="">Any type</option>
@@ -49,35 +69,55 @@ export default async function Home() {
           <button className="primary" type="button"><Search size={18} /> Search</button>
         </form>
 
+        <section className="section-heading">
+          <div>
+            <span className="eyebrow">Curated properties</span>
+            <h2>Find the right place faster</h2>
+          </div>
+          <p>{properties.length} listings synced from your Salesforce data model.</p>
+        </section>
+
         <section className="content-grid">
           <div className="cards">
             {properties.map((property) => (
               <Link className="property-card" href={`/properties/${property.id}`} key={property.id}>
-                <Image
-                  src={property.imageUrl || 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3'}
-                  alt={property.name}
-                  width={720}
-                  height={450}
-                />
+                <div className="property-media">
+                  <Image
+                    src={property.imageUrl || 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3'}
+                    alt={property.name}
+                    width={720}
+                    height={450}
+                  />
+                  <span className="status-pill">{property.status}</span>
+                </div>
                 <div className="property-body">
-                  <strong>{property.name}</strong>
+                  <div className="property-title">
+                    <strong>{property.name}</strong>
+                    {property.locationVerified ? <CheckCircle2 size={18} aria-label="Verified address" /> : null}
+                  </div>
                   <div className="property-meta">
                     <span><MapPin size={14} /> {property.city || 'Location'} {property.country || ''}</span>
                     <span><Building2 size={14} /> {property.propertyType}</span>
                     <span><BedDouble size={14} /> {property.bedrooms ?? 0}</span>
                     <span><Bath size={14} /> {property.bathrooms ?? 0}</span>
                   </div>
-                  <div className="price">{formatPrice(property.price, property.propertyType)}</div>
+                  <div className="card-footer">
+                    <div className="price">{formatPrice(property.price, property.propertyType)}</div>
+                    <span className="view-link">View <ArrowRight size={15} /></span>
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
 
           <aside className="map-panel">
-            <strong>Map View</strong>
-            <p className="property-meta">Google Maps key bağlanınca burada canlı harita açılır.</p>
+            <span className="eyebrow">Map preview</span>
+            <strong>Explore by neighborhood</strong>
+            <p className="property-meta">Google Maps key baglaninca burada canli harita acilir.</p>
             <div className="map-box">
-              <MapPin size={44} color="#1f7a58" />
+              <span className="map-pin pin-one"><MapPin size={22} /></span>
+              <span className="map-pin pin-two"><MapPin size={22} /></span>
+              <span className="map-pin pin-three"><MapPin size={22} /></span>
             </div>
           </aside>
         </section>
